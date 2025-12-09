@@ -8,6 +8,7 @@
 | Tech company    | Technology Select Sector Index (Tech ETF)    | XLK      |
 <img width="993" height="369" alt="image" src="https://github.com/user-attachments/assets/039c314a-2de0-4f3b-98ea-e342d54f93eb" />
 
+<img width="2017" height="966" alt="image" src="https://github.com/user-attachments/assets/66338cc0-1ca8-445c-8319-bf67e5fb5a1a" />
 
 <img width="2440" height="1168" alt="image" src="https://github.com/user-attachments/assets/041a6bd0-a04e-4ec0-bc5a-0fc956a092af" />
 
@@ -20,3 +21,8 @@
 <img width="2042" height="786" alt="image" src="https://github.com/user-attachments/assets/13bf005e-a9eb-4e56-ad18-7426f99ba9c2" />
 
 <img width="2013" height="794" alt="image" src="https://github.com/user-attachments/assets/93559188-a603-47e5-ac91-b8e0ab0b7a9b" />
+
+
+<img width="2462" height="1201" alt="image" src="https://github.com/user-attachments/assets/6f28e96b-31c7-441f-9d1e-202bb01cd5c0" />
+
+
