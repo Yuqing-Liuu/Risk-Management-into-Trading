@@ -31,67 +31,77 @@ where \(L\) is the lookback length. At each step \(k\) in the window we feed an 
 
 For an LSTM cell, the updates at time step \(k\) are:
 
-### 2.1 LSTM Equations
+## 2.1 LSTM Equations
 
-Forget gate:
+### Forget gate
+
 $$
-f_k = \sigma\!\left(W_f
+f_k = \sigma\left(
+W_f 
 \begin{bmatrix}
 h_{k-1} \\
 x_k
 \end{bmatrix}
-+ b_f\right)
++ b_f
+\right)
 $$
 
-Input gate:
+
+### Input gate
+
 $$
-i_k = \sigma\!\left(W_i
+i_k = \sigma\left(
+W_i
 \begin{bmatrix}
 h_{k-1} \\
 x_k
 \end{bmatrix}
-+ b_i\right)
++ b_i
+\right)
 $$
 
-Candidate memory:
+
+### Candidate memory
+
 $$
-\tilde{c}_k = \tanh\!\left(W_c
+\tilde{c}_k = \tanh\left(
+W_c
 \begin{bmatrix}
 h_{k-1} \\
 x_k
 \end{bmatrix}
-+ b_c\right)
++ b_c
+\right)
 $$
 
-Output gate:
+
+### Output gate
+
 $$
-o_k = \sigma\!\left(W_o
+o_k = \sigma\left(
+W_o
 \begin{bmatrix}
 h_{k-1} \\
 x_k
 \end{bmatrix}
-+ b_o\right)
++ b_o
+\right)
 $$
 
-Cell state update:
+
+### Cell state update
+
 $$
 c_k = f_k \odot c_{k-1} + i_k \odot \tilde{c}_k
 $$
 
-Hidden state:
+
+### Hidden state
+
 $$
 h_k = o_k \odot \tanh(c_k)
 $$
 
-Here:
-
-- \(x_k\) : input at time \(k\) (log-return and possibly other features)  
-- \(h_k\) : hidden state (short-term representation of the sequence)  
-- \(c_k\) : cell state (long-term memory)  
-- \(\sigma(\cdot)\) : logistic sigmoid function  
-- \(\odot\) : element-wise (Hadamard) product  
-
-After processing the whole window \(\{x_{t-L+1}, \dots, x_t\}\), we use the final hidden state \(h_t\) as a summary of recent market dynamics.
 
 
 ## 3. From LSTM Output to Trading Signal (3-Class Classification)
