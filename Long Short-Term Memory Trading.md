@@ -163,21 +163,9 @@ $$
 $$
 
 
-### 4.2 Including Transaction Costs
+### 4.2 Transaction Costs
 
-Let $\(c > 0\)$ be the proportional transaction cost (per unit change in position).  
-The position change between days is:
-
-$$
-\Delta_t = |s_t - s_{t-1}|.
-$$
-
-The net PnL including trading costs is:
-
-$$
-\text{NetPnL}_{t+1}
-= s_t \cdot r_{t+1} - c \cdot \Delta_t.
-$$
+Transaction costs are **not included** in this study.  
 
 
 ### 4.3 Performance Metrics
