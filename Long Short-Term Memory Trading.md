@@ -2,152 +2,206 @@
 
 Financial time series such as log-returns exhibit several stylized facts:
 
-- Non-stationarity  
+- Non-stationarity and structural breaks  
 - Volatility clustering  
 - Regime switching  
 - Non-linear temporal dependencies  
-- Weak serial dependence mixed with noise  
+- Weak serial dependence mixed with strong noise  
 
-LSTMs (Long Short-Term Memory networks) are specifically designed to learn:
+Long Short-Term Memory (LSTM) networks are specifically designed to:
 
-1. Long-range temporal dependencies  
-2. Non-linear patterns  
-3. Hidden regimes  
-4. Complex transformations of past returns  
+1. Capture long-range temporal dependencies via the memory cell  
+2. Model non-linear interactions between past returns  
+3. Adapt to different volatility and trend regimes through the gating mechanism  
+4. Compress raw sequences into a low-dimensional hidden state that summarizes the recent market history  
 
-Because markets contain weak but persistent patterns, LSTMs can convert historical return sequences into a probabilistic forecast of the next-period direction.  
-This makes LSTMs suitable for directional trading strategies, where the goal is not to predict the exact return value but to capture:
-
-- trend continuation  
-- mean-reversion signals  
-- volatility-regime transitions  
+Because financial markets may contain weak but persistent patterns (trend, mean-reversion, regime shifts), LSTMs can transform a window of past log-returns into a directional forecast for the next period.  
+This forecast can then be converted into trading actions (buy / sell / flat), turning the LSTM into a systematic trading strategy.
 
 
-## 2. Mathematical Logic of the LSTM Model
+## 2. LSTM Cell: Mathematical Formulation
 
-Assume we observe a rolling window of past log-returns:
+Consider a window of past log-returns
 
-r_(t-L+1), r_(t-L+2), ..., r_t
+$$
+\{r_{t-L+1}, r_{t-L+2}, \dots, r_t\},
+$$
 
-Let x_t denote the input at time t.  
-The LSTM cell updates its internal states using the following gating mechanism.
+where \(L\) is the lookback length. At each step \(k\) in the window we feed an input vector \(x_k\) to the LSTM (in the simplest case \(x_k = r_k\)).
 
+For an LSTM cell, the updates at time step \(k\) are:
 
 ### 2.1 LSTM Equations
 
 Forget gate:
-f_t = sigmoid( W_f * [h_(t-1), x_t] + b_f )
+$$
+f_k = \sigma\!\left(W_f
+\begin{bmatrix}
+h_{k-1} \\
+x_k
+\end{bmatrix}
++ b_f\right)
+$$
 
 Input gate:
-i_t = sigmoid( W_i * [h_(t-1), x_t] + b_i )
+$$
+i_k = \sigma\!\left(W_i
+\begin{bmatrix}
+h_{k-1} \\
+x_k
+\end{bmatrix}
++ b_i\right)
+$$
 
 Candidate memory:
-g_t = tanh( W_g * [h_(t-1), x_t] + b_g )
+$$
+\tilde{c}_k = \tanh\!\left(W_c
+\begin{bmatrix}
+h_{k-1} \\
+x_k
+\end{bmatrix}
++ b_c\right)
+$$
 
 Output gate:
-o_t = sigmoid( W_o * [h_(t-1), x_t] + b_o )
+$$
+o_k = \sigma\!\left(W_o
+\begin{bmatrix}
+h_{k-1} \\
+x_k
+\end{bmatrix}
++ b_o\right)
+$$
 
 Cell state update:
-c_t = f_t ⊙ c_(t-1) + i_t ⊙ g_t
+$$
+c_k = f_k \odot c_{k-1} + i_k \odot \tilde{c}_k
+$$
 
 Hidden state:
-h_t = o_t ⊙ tanh(c_t)
+$$
+h_k = o_k \odot \tanh(c_k)
+$$
 
 Here:
-- x_t : input (log-return at time t)
-- h_t : hidden representation (extracted temporal features)
-- c_t : long-term memory
-- ⊙ : element-wise multiplication
+
+- \(x_k\) : input at time \(k\) (log-return and possibly other features)  
+- \(h_k\) : hidden state (short-term representation of the sequence)  
+- \(c_k\) : cell state (long-term memory)  
+- \(\sigma(\cdot)\) : logistic sigmoid function  
+- \(\odot\) : element-wise (Hadamard) product  
+
+After processing the whole window \(\{x_{t-L+1}, \dots, x_t\}\), we use the final hidden state \(h_t\) as a summary of recent market dynamics.
 
 
-### 2.2 Mapping the LSTM Output to Trading Labels
+## 3. From LSTM Output to Trading Signal (3-Class Classification)
 
-Instead of predicting the raw return r_(t+1), the model predicts one of three classes:
+Instead of directly predicting the next log-return \(r_{t+1}\), we formulate a 3-class classification problem:
 
-- +1  (Buy)
--  0  (Flat)
-- -1  (Sell)
+- \(y_{t+1} = +1\) : Buy (long)  
+- \(y_{t+1} = 0\)  : Flat (no position)  
+- \(y_{t+1} = -1\) : Sell (short)  
 
-Let y_(t+1) be the true class label.
+### 3.1 Label Construction
 
-The LSTM hidden state h_t is passed to a fully-connected layer:
+Let \(r_{t+1}\) be the next-day log-return.  
+We define two thresholds \(\tau_{\text{low}} < 0 < \tau_{\text{high}}\).  
+A simple symmetric choice uses a single \(\tau > 0\) such that:
 
-z = W_out * h_t + b_out
+$$
+y_{t+1} =
+\begin{cases}
++1, & \text{if } r_{t+1} > \tau, \\
+0, & \text{if } -\tau \le r_{t+1} \le \tau, \\
+-1, & \text{if } r_{t+1} < -\tau.
+\end{cases}
+$$
 
-Then a softmax function converts it into class probabilities:
+Typical ways to choose \(\tau\):
 
-p = softmax(z)
+- **Quantile-based**: \(\tau\) chosen so that roughly 1/3 of observations are Buy, 1/3 Sell, 1/3 Flat.  
+- **Volatility-based**: \(\tau = k \cdot \sigma_r\), where \(\sigma_r\) is the standard deviation of daily log-returns and \(k > 0\).
 
-Where:
-p(+1), p(0), p(-1) sum to 1.
-
-
-### 2.3 Label Generation (3-class classification)
-
-Let r_(t+1) be the next-day log-return.
-
-A threshold τ > 0 is applied:
-
-If r_(t+1) > τ       → label = +1 (Buy)
-If r_(t+1) < -τ      → label = -1 (Sell)
-Otherwise            → label = 0  (Flat)
-
-τ can be defined by:
-- empirical quantiles (e.g. 33% and 67%)
-- volatility scaling (τ = k * std)
+This transforms numerical returns into discrete trading decisions, which is more directly aligned with a real trading system.
 
 
-## 3. How LSTM Becomes a Trading Strategy
+### 3.2 Classification Head on Top of LSTM
 
-### 3.1 Predictive Output
+After the LSTM processes the lookback window and produces \(h_t\), we map it to class scores:
 
-At time t, the model outputs:
+$$
+z_t = W_{\text{out}} h_t + b_{\text{out}} \in \mathbb{R}^3,
+$$
 
-p(+1 | history)
-p(0  | history)
-p(-1 | history)
+where the three components correspond to the logits for \(-1, 0, +1\).
 
-The trading signal is:
+We apply the softmax function to obtain class probabilities:
 
-signal_t = argmax_class p(class)
+$$
+p_t^{(k)} = \frac{\exp(z_t^{(k)})}
+{\sum_{j \in \{-1,0,+1\}} \exp(z_t^{(j)})},
+\quad k \in \{-1,0,+1\}.
+$$
 
+The predicted label is:
 
-### 3.2 Position Execution
+$$
+\hat{y}_{t+1} = \arg\max_{k \in \{-1,0,+1\}} p_t^{(k)}.
+$$
 
-Positions are opened at t and applied to next-day return r_(t+1):
-
-position_t ∈ { -1, 0, +1 }
-
-PnL_(t+1) = position_t * r_(t+1)
-
-
-### 3.3 Transaction Costs
-
-Let cost be the proportional trading cost (e.g. 0.1%).
-
-Position change:
-Δ_t = | position_t - position_(t-1) |
-
-Then net PnL is:
-
-NetPnL_(t+1) = position_t * r_(t+1) - cost * Δ_t
+Training is done by minimizing the cross-entropy loss between the predicted probabilities \(p_t^{(k)}\) and the true labels \(y_{t+1}\).
 
 
-### 3.4 Performance Evaluation
+## 4. Turning LSTM Predictions into a Trading Strategy
 
-From the PnL series, we compute:
+### 4.1 Trading Signal and Position
 
-- cumulative return
-- annualized return (CAGR)
-- annualized volatility
-- Sharpe ratio
-- max drawdown
-- hit ratio (accuracy of directional prediction)
+We interpret the predicted class \(\hat{y}_{t+1}\) as a trading signal:
 
-The strategy is then compared across five asset classes:
+- \(\hat{y}_{t+1} = +1 \Rightarrow\) open/hold a long position  
+- \(\hat{y}_{t+1} = 0  \Rightarrow\) stay flat, no exposure  
+- \(\hat{y}_{t+1} = -1 \Rightarrow\) open/hold a short position  
 
-- Treasury bond (IEF)
-- Commodity (CLF)
-- Gold (GCF)
-- Currency (EURUSD)
-- Technology (XLK)
+Let \(s_t \in \{-1, 0, +1\}\) denote the position held during \([t, t+1]\).  
+At the decision time \(t\) we set:
+
+$$
+s_t = \hat{y}_{t+1}.
+$$
+
+The realized next-day PnL (ignoring costs) is:
+
+$$
+\text{PnL}_{t+1} = s_t \cdot r_{t+1}.
+$$
+
+
+### 4.2 Including Transaction Costs
+
+Let \(c > 0\) be the proportional transaction cost (per unit change in position).  
+The position change between days is:
+
+$$
+\Delta_t = |s_t - s_{t-1}|.
+$$
+
+The net PnL including trading costs is:
+
+$$
+\text{NetPnL}_{t+1}
+= s_t \cdot r_{t+1} - c \cdot \Delta_t.
+$$
+
+
+### 4.3 Performance Metrics
+
+From the time series of \(\text{NetPnL}_{t}\) we construct:
+
+- Cumulative return  
+- Annualized return (CAGR)  
+- Annualized volatility  
+- Sharpe ratio  
+- Maximum drawdown  
+- Hit ratio (percentage of days with correctly predicted direction)
+
+The same LSTM architecture and trading rule are applied to each of the five asset classes (Treasury bond, commodity, gold, currency, technology equity).  
