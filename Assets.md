@@ -6,6 +6,8 @@
 | Gold            | XAUUSD spot gold                             | XAUUSD   |
 | Currency        | EURUSD exchange rate                         | EURUSD   |
 | Tech company    | Technology Select Sector Index (Tech ETF)    | XLK      |
+<img width="993" height="369" alt="image" src="https://github.com/user-attachments/assets/039c314a-2de0-4f3b-98ea-e342d54f93eb" />
+
 
 <img width="2440" height="1168" alt="image" src="https://github.com/user-attachments/assets/041a6bd0-a04e-4ec0-bc5a-0fc956a092af" />
 
