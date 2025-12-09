@@ -141,9 +141,10 @@ Training is done by minimizing the cross-entropy loss between the predicted prob
 
 We interpret the predicted class \(\hat{y}_{t+1}\) as a trading signal:
 
-- \(\hat{y}_{t+1} = +1 \Rightarrow\) open/hold a long position  
-- \(\hat{y}_{t+1} = 0  \Rightarrow\) stay flat, no exposure  
-- \(\hat{y}_{t+1} = -1 \Rightarrow\) open/hold a short position  
+- **Long:** $ \hat{y}_{t+1} = +1 $
+- **Flat:** $ \hat{y}_{t+1} = 0 $
+- **Short:** $ \hat{y}_{t+1} = -1 $
+
 
 Let \(s_t \in \{-1, 0, +1\}\) denote the position held during \([t, t+1]\).  
 At the decision time \(t\) we set:
