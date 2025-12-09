@@ -8,8 +8,6 @@ Financial time series such as log-returns exhibit several stylized facts:
 - Non-linear temporal dependencies  
 - Weak serial dependence mixed with noise  
 
-Traditional linear models (ARIMA, OLS) assume short memory and linear dynamics, which limits their ability to extract predictive structure from asset returns.
-
 LSTMs (Long Short-Term Memory networks) are specifically designed to learn:
 
 1. Long-range temporal dependencies  
@@ -18,7 +16,7 @@ LSTMs (Long Short-Term Memory networks) are specifically designed to learn:
 4. Complex transformations of past returns  
 
 Because markets contain weak but persistent patterns, LSTMs can convert historical return sequences into a probabilistic forecast of the next-period direction.  
-This makes LSTMs suitable for **directional trading strategies**, where the goal is not to predict the exact return value but to capture:
+This makes LSTMs suitable for directional trading strategies, where the goal is not to predict the exact return value but to capture:
 
 - trend continuation  
 - mean-reversion signals  
@@ -35,7 +33,7 @@ Let x_t denote the input at time t.
 The LSTM cell updates its internal states using the following gating mechanism.
 
 
-### 2.1 LSTM Equations (pure text, no LaTeX)
+### 2.1 LSTM Equations
 
 Forget gate:
 f_t = sigmoid( W_f * [h_(t-1), x_t] + b_f )
@@ -153,6 +151,3 @@ The strategy is then compared across five asset classes:
 - Gold (GCF)
 - Currency (EURUSD)
 - Technology (XLK)
-
-This allows us to evaluate how the same LSTM architecture performs under different market dynamics and volatility structures.
-
