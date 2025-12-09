@@ -29,9 +29,9 @@ $$
 $$
 
 
-where \(L\) is the lookback length. At each step \(k\) in the window we feed an input vector $\(x_k\)$ to the LSTM.
+where $\(L\)$ is the lookback length. At each step $\(k\)$ in the window we feed an input vector $\(x_k\)$ to the LSTM.
 
-For an LSTM cell, the updates at time step \(k\) are:
+For an LSTM cell, the updates at time step $\(k\)$ are:
 
 ## 2.1 LSTM Equations
 
@@ -100,10 +100,10 @@ y_{t+1} =
 \end{cases}
 $$
 
-Typical ways to choose \(\tau\):
+Typical ways to choose $\(\tau\)$:
 
-- **Quantile-based**: \(\tau\) chosen so that roughly 1/3 of observations are Buy, 1/3 Sell, 1/3 Flat.  
-- **Volatility-based**: \(\tau = k \cdot \sigma_r\), where \(\sigma_r\) is the standard deviation of daily log-returns and \(k > 0\).
+- **Quantile-based**: $\(\tau\)$ chosen so that roughly 1/3 of observations are Buy, 1/3 Sell, 1/3 Flat.  
+- **Volatility-based**: $\(\tau = k \cdot \sigma_r\)$, where $\(\sigma_r\)$ is the standard deviation of daily log-returns and $\(k > 0\)$.
 
 This transforms numerical returns into discrete trading decisions, which is more directly aligned with a real trading system.
 
@@ -116,7 +116,7 @@ $$
 z_t = W_{\text{out}} h_t + b_{\text{out}} \in \mathbb{R}^3,
 $$
 
-where the three components correspond to the logits for \(-1, 0, +1\).
+where the three components correspond to the logits for $\(-1, 0, +1\)$.
 
 We apply the softmax function to obtain class probabilities:
 
@@ -139,7 +139,7 @@ Training is done by minimizing the cross-entropy loss between the predicted prob
 
 ### 4.1 Trading Signal and Position
 
-We interpret the predicted class \(\hat{y}_{t+1}\) as a trading signal:
+We interpret the predicted class $\(\hat{y}_{t+1}\)$ as a trading signal:
 
 - **Long:** $\hat{y}_{t+1} = +1$
   
@@ -149,7 +149,7 @@ We interpret the predicted class \(\hat{y}_{t+1}\) as a trading signal:
 
 
 
-Let \(s_t \in \{-1, 0, +1\}\) denote the position held during $\([t, t+1]\)$.  
+Let $\(s_t \in \{-1, 0, +1\}\)$ denote the position held during $\([t, t+1]\)$.  
 At the decision time $\(t\)$ we set:
 
 $$
