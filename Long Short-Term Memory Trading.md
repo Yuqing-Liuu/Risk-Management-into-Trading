@@ -27,7 +27,7 @@ $$
 \{r_{t-L+1}, r_{t-L+2}, \dots, r_t\},
 $$
 
-where \(L\) is the lookback length. At each step \(k\) in the window we feed an input vector \(x_k\) to the LSTM (in the simplest case \(x_k = r_k\)).
+where \(L\) is the lookback length. At each step \(k\) in the window we feed an input vector \(x_k\) to the LSTM.
 
 For an LSTM cell, the updates at time step \(k\) are:
 
