@@ -23,9 +23,11 @@ This forecast can then be converted into trading actions (buy / sell / flat), tu
 
 Consider a window of past log-returns
 
+
 $$
 \{r_{t-L+1}, r_{t-L+2}, \dots, r_t\},
 $$
+
 
 where \(L\) is the lookback length. At each step \(k\) in the window we feed an input vector \(x_k\) to the LSTM.
 
@@ -50,28 +52,14 @@ $$
 ### Input gate
 
 $$
-i_k = \sigma\left(
-W_i
-\begin{bmatrix}
-h_{k-1} \\
-x_k
-\end{bmatrix}
-+ b_i
-\right)
+i_k = \sigma\left(W_i\begin{bmatrix}h_{k-1} \\x_k\end{bmatrix}+ b_i\right)
 $$
 
 
 ### Candidate memory
 
 $$
-\tilde{c}_k = \tanh\left(
-W_c
-\begin{bmatrix}
-h_{k-1} \\
-x_k
-\end{bmatrix}
-+ b_c
-\right)
+\tilde{c}_k = \tanh\left(W_c\begin{bmatrix}h_{k-1} \\x_k\end{bmatrix}+ b_c\right)
 $$
 
 
