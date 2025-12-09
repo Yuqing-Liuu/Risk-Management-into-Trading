@@ -79,9 +79,11 @@ $$
 
 Instead of directly predicting the next log-return \(r_{t+1}\), we formulate a 3-class classification problem:
 
-- \(y_{t+1} = +1\) : Buy (long)  
-- \(y_{t+1} = 0\)  : Flat (no position)  
-- \(y_{t+1} = -1\) : Sell (short)  
+- $y_{t+1} = +1$ : Buy (long)
+  
+- $y_{t+1} = 0$ : Flat (no position)
+  
+- $y_{t+1} = -1$ : Sell (short)
 
 ### 3.1 Label Construction
 
