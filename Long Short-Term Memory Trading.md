@@ -29,7 +29,7 @@ $$
 $$
 
 
-where \(L\) is the lookback length. At each step \(k\) in the window we feed an input vector \(x_k\) to the LSTM.
+where \(L\) is the lookback length. At each step \(k\) in the window we feed an input vector $\(x_k\)$ to the LSTM.
 
 For an LSTM cell, the updates at time step \(k\) are:
 
@@ -77,7 +77,7 @@ $$
 
 ## 3. From LSTM Output to Trading Signal (3-Class Classification)
 
-Instead of directly predicting the next log-return \(r_{t+1}\), we formulate a 3-class classification problem:
+Instead of directly predicting the next log-return $\(r_{t+1}\)$, we formulate a 3-class classification problem:
 
 - $y_{t+1} = +1$ : Buy (long)
   
@@ -87,9 +87,9 @@ Instead of directly predicting the next log-return \(r_{t+1}\), we formulate a 3
 
 ### 3.1 Label Construction
 
-Let \(r_{t+1}\) be the next-day log-return.  
-We define two thresholds \(\tau_{\text{low}} < 0 < \tau_{\text{high}}\).  
-A simple symmetric choice uses a single \(\tau > 0\) such that:
+Let $\(r_{t+1}\)$ be the next-day log-return.  
+We define two thresholds $\(\tau_{\text{low}}$ < 0 < $\tau_{\text{high}}\)$.  
+A simple symmetric choice uses a single $\(\tau > 0\)$ such that:
 
 $$
 y_{t+1} =
@@ -110,7 +110,7 @@ This transforms numerical returns into discrete trading decisions, which is more
 
 ### 3.2 Classification Head on Top of LSTM
 
-After the LSTM processes the lookback window and produces \(h_t\), we map it to class scores:
+After the LSTM processes the lookback window and produces $\(h_t\)$, we map it to class scores:
 
 $$
 z_t = W_{\text{out}} h_t + b_{\text{out}} \in \mathbb{R}^3,
@@ -132,7 +132,7 @@ $$
 \hat{y}_{t+1} = \arg\max_{k \in \{-1,0,+1\}} p_t^{(k)}.
 $$
 
-Training is done by minimizing the cross-entropy loss between the predicted probabilities \(p_t^{(k)}\) and the true labels \(y_{t+1}\).
+Training is done by minimizing the cross-entropy loss between the predicted probabilities $\(p_t^{(k)}\)$ and the true labels $\(y_{t+1}\)$.
 
 
 ## 4. Turning LSTM Predictions into a Trading Strategy
@@ -149,8 +149,8 @@ We interpret the predicted class \(\hat{y}_{t+1}\) as a trading signal:
 
 
 
-Let \(s_t \in \{-1, 0, +1\}\) denote the position held during \([t, t+1]\).  
-At the decision time \(t\) we set:
+Let \(s_t \in \{-1, 0, +1\}\) denote the position held during $\([t, t+1]\)$.  
+At the decision time $\(t\)$ we set:
 
 $$
 s_t = \hat{y}_{t+1}.
@@ -165,7 +165,7 @@ $$
 
 ### 4.2 Including Transaction Costs
 
-Let \(c > 0\) be the proportional transaction cost (per unit change in position).  
+Let $\(c > 0\)$ be the proportional transaction cost (per unit change in position).  
 The position change between days is:
 
 $$
@@ -182,10 +182,10 @@ $$
 
 ### 4.3 Performance Metrics
 
-From the time series of \(\text{NetPnL}_{t}\) we construct:
+From the time series of $\text{NetPnL}_{t}$ we construct:
 
 - Cumulative return  
-- Annualized return (CAGR)  
+- Annualized return 
 - Annualized volatility  
 - Sharpe ratio  
 - Maximum drawdown  
