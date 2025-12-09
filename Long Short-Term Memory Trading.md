@@ -35,56 +35,39 @@ For an LSTM cell, the updates at time step \(k\) are:
 
 ## 2.1 LSTM Equations
 
-### Forget gate
+## 2.1 LSTM Equations
+
+Forget gate:
 
 $$
-f_k = \sigma\left(
-W_f 
-\begin{bmatrix}
-h_{k-1} \\
-x_k
-\end{bmatrix}
-+ b_f
-\right)
+f_k = \sigma\big( W_f [h_{k-1}, x_k] + b_f \big)
 $$
 
-
-### Input gate
-
-$$
-i_k = \sigma\left(W_i\begin{bmatrix}h_{k-1} \\x_k\end{bmatrix}+ b_i\right)
-$$
-
-
-### Candidate memory
+Input gate:
 
 $$
-\tilde{c}_k = \tanh\left(W_c\begin{bmatrix}h_{k-1} \\x_k\end{bmatrix}+ b_c\right)
+i_k = \sigma\big( W_i [h_{k-1}, x_k] + b_i \big)
 $$
 
-
-### Output gate
+Candidate memory:
 
 $$
-o_k = \sigma\left(
-W_o
-\begin{bmatrix}
-h_{k-1} \\
-x_k
-\end{bmatrix}
-+ b_o
-\right)
+\tilde{c}_k = \tanh\big( W_c [h_{k-1}, x_k] + b_c \big)
 $$
 
+Output gate:
 
-### Cell state update
+$$
+o_k = \sigma\big( W_o [h_{k-1}, x_k] + b_o \big)
+$$
+
+Cell state update:
 
 $$
 c_k = f_k \odot c_{k-1} + i_k \odot \tilde{c}_k
 $$
 
-
-### Hidden state
+Hidden state:
 
 $$
 h_k = o_k \odot \tanh(c_k)
