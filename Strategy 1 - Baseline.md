@@ -98,6 +98,8 @@ $$ BuyHold = \frac{P_{end}}{P_{start}} - 1 $$
 
 <img width="2004" height="1163" alt="image" src="https://github.com/user-attachments/assets/d4dd3270-c272-4181-a719-a45d5257989d" />
 
+<img width="1398" height="1148" alt="image" src="https://github.com/user-attachments/assets/a478141c-0895-4b6a-b732-b9268ac7f90d" />
+
 
 
 
