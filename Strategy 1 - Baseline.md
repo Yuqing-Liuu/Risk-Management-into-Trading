@@ -1,18 +1,10 @@
 # Strategy Summary – LSTM-Based Trading
 
-<img width="1345" height="395" alt="image" src="https://github.com/user-attachments/assets/14b37181-a7c2-4ca1-89bf-82e975ecf2a4" />
+<img width="1287" height="384" alt="image" src="https://github.com/user-attachments/assets/969c1360-bef5-4d76-b1fb-4798070f34ab" />
+
 
 General conclution : 
 
-* The RW-LSTM strategy is not universally effective across assets.
-
-* It performs exceptionally well only on high-volatility, structurally trending assets.
-
-* For strong long-term bull markets (e.g., tech), LSTM underperforms Buy&Hold due to unnecessary exits.
-
-* For noisy markets like FX, LSTM's value is primarily risk avoidance, not prediction.
-
-* HitRatio is low (<30%), meaning the model generates value mostly through position sizing and filtering, not direction prediction.
 
 ---
 
@@ -99,15 +91,7 @@ $$ BuyHold = \frac{P_{end}}{P_{start}} - 1 $$
 ---
 
 
-<img width="1336" height="389" alt="image" src="https://github.com/user-attachments/assets/c06dce5d-3257-4502-b3f2-94e625b719c6" />
-
-<img width="2110" height="1161" alt="image" src="https://github.com/user-attachments/assets/c42b9091-ac1b-452e-9cce-48c81a5e17b3" />
-
-<img width="3014" height="1017" alt="image" src="https://github.com/user-attachments/assets/95a9c10b-83bc-4e88-a672-52be2494bd1d" />
-<img width="3007" height="1033" alt="image" src="https://github.com/user-attachments/assets/e7afc0fc-f5e4-4d21-90a0-4d28dcb71cc1" />
-<img width="2996" height="483" alt="image" src="https://github.com/user-attachments/assets/ce7e6a14-3baa-4da2-bf99-4b449e7f53b5" />
-
-<img width="1263" height="747" alt="image" src="https://github.com/user-attachments/assets/b132af23-db0b-4ce2-944c-5b8871dd883e" />
+<img width="2064" height="1183" alt="image" src="https://github.com/user-attachments/assets/d155bf4c-139b-48c4-82d1-1a0d4cbdabfe" />
 
 
 
