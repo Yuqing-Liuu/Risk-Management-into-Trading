@@ -1,13 +1,6 @@
 # Strategy Summary – LSTM-Based Trading
 
-Assets:
-- IEF
-- CLF
-- GCF
-- EURUSD
-- XLK
-
-We compare LSTM-based trading signals against a Buy-and-Hold benchmark.
+Compare LSTM-based trading signals against a Buy-and-Hold benchmark.
 
 ---
 
