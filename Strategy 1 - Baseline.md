@@ -3,7 +3,18 @@
 <img width="1287" height="384" alt="image" src="https://github.com/user-attachments/assets/969c1360-bef5-4d76-b1fb-4798070f34ab" />
 
 
-General conclution : 
+Overall Assessment
+
+- The strategy demonstrates profitability potential in certain assets (CLF, GCF, EURUSD).
+  
+- However, risk control is insufficient, as seen in high volatility and extreme drawdowns (especially CLF).
+  
+- Predictive accuracy (Hit Ratio ~45–51%) is only slightly above random chance.
+  
+- Low turnover suggests limited trading frequency, which helps reduce transaction costs.
+  
+**Conclusion**: Strategy 1 highlights the predictive capacity of LSTM models but suffers from poor risk-adjusted performance. This makes the case for introducing Strategy 2 with risk management mechanisms to achieve more stable and practical trading outcomes.
+
 
 
 ---
