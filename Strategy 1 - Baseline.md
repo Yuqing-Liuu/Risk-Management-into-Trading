@@ -50,12 +50,6 @@ Process:
 3. Slide window forward
 4. Repeat until end of test set
 
-Benefits:
-
-- model adapts to regime changes
-- avoids outdated patterns
-- captures short-term dynamics
-- produces more robust signals
 
 ---
 
