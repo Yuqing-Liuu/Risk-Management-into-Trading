@@ -2,18 +2,6 @@
 
 <img width="1345" height="395" alt="image" src="https://github.com/user-attachments/assets/14b37181-a7c2-4ca1-89bf-82e975ecf2a4" />
 
-The rolling-window LSTM strategy (RW-LSTM) uses walk-forward training, dynamic volatility-adjusted labels, and probabilistic trade filtering. Performance varies significantly across assets due to differences in:
-
-- Trend strength
-
-- Volatility regime
-
-- Mean-reversion tendencies
-
-- Signal-to-noise ratio
-
-- Model’s capacity to capture short-term patterns
-
 General conclution : 
 
 * The RW-LSTM strategy is not universally effective across assets.
