@@ -1,6 +1,30 @@
 # Strategy Summary – LSTM-Based Trading
 
-Compare LSTM-based trading signals against a Buy-and-Hold benchmark.
+<img width="1345" height="395" alt="image" src="https://github.com/user-attachments/assets/14b37181-a7c2-4ca1-89bf-82e975ecf2a4" />
+
+The rolling-window LSTM strategy (RW-LSTM) uses walk-forward training, dynamic volatility-adjusted labels, and probabilistic trade filtering. Performance varies significantly across assets due to differences in:
+
+- Trend strength
+
+- Volatility regime
+
+- Mean-reversion tendencies
+
+- Signal-to-noise ratio
+
+- Model’s capacity to capture short-term patterns
+
+General conclution : 
+
+* The RW-LSTM strategy is not universally effective across assets.
+
+* It performs exceptionally well only on high-volatility, structurally trending assets.
+
+* For strong long-term bull markets (e.g., tech), LSTM underperforms Buy&Hold due to unnecessary exits.
+
+* For noisy markets like FX, LSTM's value is primarily risk avoidance, not prediction.
+
+* HitRatio is low (<30%), meaning the model generates value mostly through position sizing and filtering, not direction prediction.
 
 ---
 
@@ -85,6 +109,7 @@ $$ TotalReturn = \left( \prod_t (1 + PnL_t) \right) - 1 $$
 $$ BuyHold = \frac{P_{end}}{P_{start}} - 1 $$
 
 ---
+
 
 <img width="2938" height="266" alt="image" src="https://github.com/user-attachments/assets/cdc92e4e-6fc4-450c-8912-9297ad557cb8" />
 
