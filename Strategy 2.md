@@ -64,6 +64,7 @@ Two DD triggers:
 
 Adjusted leverage:
 
+$$
 \[
 k_t =
 \begin{cases}
@@ -72,8 +73,7 @@ k_t =
 k^{raw}_t, & \text{otherwise}
 \end{cases}
 \]
-
-This mimics real institutional risk controls.
+$$
 
 ---
 
