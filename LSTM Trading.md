@@ -178,4 +178,4 @@ From the time series of $\text{NetPnL}_{t}$ we construct:
 - Maximum drawdown  
 - Hit ratio (percentage of days with correctly predicted direction)
 
-The same LSTM architecture and trading rule are applied to each of the five asset classes (Treasury bond, commodity, gold, currency, technology equity).  
+
