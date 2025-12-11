@@ -3,15 +3,15 @@
 <img width="1274" height="378" alt="image" src="https://github.com/user-attachments/assets/801e34b3-a21d-4233-9dc9-6d582ef08da5" />
 
 
-| IEF     | Weak signals; low volatility limits model effectiveness |
+ * IEF ->  Weak signals; low volatility limits model effectiveness 
 
-| CLF     | Outstanding performance; strong momentum regime |
+* CLF  -> Outstanding performance; strong momentum regime 
 
-| GCF     | Poor predictive accuracy; unstable trend cycles |
+* GCF  -> Poor predictive accuracy; unstable trend cycles 
 
-| EURUSD  | Stable outperformance; FX patterns captured well |
+* URUSD  -> Stable outperformance; FX patterns captured well 
 
-| XLK     | Positive but insufficient vs. strong structural uptrend |
+* XLK  -> Positive but insufficient vs. strong structural uptrend 
 
 ---
 
