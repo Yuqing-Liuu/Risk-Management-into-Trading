@@ -33,7 +33,6 @@ where $\(L\)$ is the lookback length. At each step $\(k\)$ in the window we feed
 
 For an LSTM cell, the updates at time step $\(k\)$ are:
 
-## 2.1 LSTM Equations
 
 ## 2.1 LSTM Equations
 
