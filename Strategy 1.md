@@ -11,9 +11,12 @@
 
 ---
 
-- S1 works best in **high-volatility, momentum-driven markets** (CLF).  
-- It struggles in **low-volatility** (IEF) or **trend-unstable** assets (GCF).  
-- It tends to **underperform secular uptrends** because of frequent signal reversals (XLK).  
+- S1 works best in **high-volatility, momentum-driven markets** (CLF).
+  
+- It struggles in **low-volatility** (IEF) or **trend-unstable** assets (GCF).
+  
+- It tends to **underperform secular uptrends** because of frequent signal reversals (XLK).
+   
 - Hit ratios remain near ~50%, meaning profitability relies on capturing large moves rather 
   than accuracy.
 ---
