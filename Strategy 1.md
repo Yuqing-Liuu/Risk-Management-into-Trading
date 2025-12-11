@@ -9,10 +9,6 @@
 
 ## 2. Labeling (Buy / Hold / Sell)
 
-- Buy (+1) if future return > epsilon  
-- Sell (-1) if future return < -epsilon  
-- Hold (0) otherwise  
-
 With epsilon proportional to rolling volatility:
 
 $$ y_t =
