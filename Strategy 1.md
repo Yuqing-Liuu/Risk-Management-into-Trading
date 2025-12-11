@@ -73,13 +73,12 @@ $$ BuyHold = \frac{P_{end}}{P_{start}} - 1 $$
 
 <img width="2035" height="1174" alt="image" src="https://github.com/user-attachments/assets/564d1e7a-4ce5-4263-b1f0-b5f64399c820" />
 
-<img width="2484" height="969" alt="image" src="https://github.com/user-attachments/assets/4941eb9b-8edc-483d-b81b-6ab3030f895a" />
-
-<img width="1389" height="290" alt="image" src="https://github.com/user-attachments/assets/97cb149a-12fb-490d-a7ba-0e3a4aed95c9" />
-
 <img width="2407" height="975" alt="image" src="https://github.com/user-attachments/assets/15c4bd84-8edd-4703-8857-764d10c31411" />
 
 <img width="2446" height="802" alt="image" src="https://github.com/user-attachments/assets/f4b30f8c-cb17-4769-b119-1873ffa0cca7" />
+
+<img width="1389" height="290" alt="image" src="https://github.com/user-attachments/assets/f8b3bea0-c5c1-4b68-8e0e-7b959870d230" />
+
 
 
 
