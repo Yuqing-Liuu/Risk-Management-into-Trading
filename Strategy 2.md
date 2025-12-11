@@ -100,6 +100,28 @@ $$ E_t = \exp\left(\sum_{i=1}^t r^{S2}_i\right) $$
 
 <img width="783" height="414" alt="image" src="https://github.com/user-attachments/assets/606d091c-07ce-48fe-ae88-77bb6852f516" />
 
+---
+
+- **TotalReturn increases from 39.63% (S1) to 71.71% (S2)**.
+- Annualized return improves from **4.66% → 7.66%**.
+- Annualized volatility increases because leverage is introduced, but the portfolio exhibits
+  smoother risk allocation compared to S1.
+- The Sharpe ratio decreases slightly (0.41 → 0.24), indicating more aggressive
+  risk-taking, but the overall return compensation remains acceptable.
+- **Maximum drawdown increases to –53.11%**, reflecting periods of leveraged exposure, 
+  yet the long-term growth profile is significantly stronger.
+- The Calmar ratio stays within a similar range (0.18 → 0.14), demonstrating that S2
+  maintains a risk/return profile comparable to S1 but at a higher return level.
+
+The equity curve confirms these observations: Strategy 2 consistently stays above Strategy 1 
+throughout the test period and outperforms the equal-weight Buy-and-Hold benchmark, especially 
+during trending environments where volatility targeting boosts exposure.
+
+Overall, Strategy 2 demonstrates that adding portfolio-level risk control and dynamic leverage 
+to S1 significantly enhances cumulative returns while maintaining a similar risk-adjusted
+profile. 
+
+---
 
 <img width="2453" height="998" alt="image" src="https://github.com/user-attachments/assets/3f6926b1-dcbe-4cf4-bf1e-228e4d21877e" />
 
