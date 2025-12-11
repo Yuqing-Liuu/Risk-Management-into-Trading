@@ -1,6 +1,6 @@
 # Strategy Summary – LSTM-Based Trading
 
-<img width="1287" height="384" alt="image" src="https://github.com/user-attachments/assets/969c1360-bef5-4d76-b1fb-4798070f34ab" />
+<img width="1325" height="375" alt="image" src="https://github.com/user-attachments/assets/d90d8cd0-4073-4121-9053-10c067a84dce" />
 
 
 ---
@@ -88,14 +88,18 @@ $$ BuyHold = \frac{P_{end}}{P_{start}} - 1 $$
 ---
 
 
-<img width="2064" height="1183" alt="image" src="https://github.com/user-attachments/assets/d155bf4c-139b-48c4-82d1-1a0d4cbdabfe" />
+<img width="2121" height="1196" alt="image" src="https://github.com/user-attachments/assets/e03fe7a5-17ad-4e00-b7ac-ec780beb77b7" />
 
 
-<img width="1195" height="391" alt="image" src="https://github.com/user-attachments/assets/9e36952d-a553-4380-8f6b-276a2c7996e0" />
 
-<img width="2004" height="1163" alt="image" src="https://github.com/user-attachments/assets/d4dd3270-c272-4181-a719-a45d5257989d" />
+<img width="1200" height="386" alt="image" src="https://github.com/user-attachments/assets/5c46f052-59d0-4e60-b1ae-c12f7eb1c120" />
 
-<img width="1398" height="1148" alt="image" src="https://github.com/user-attachments/assets/a478141c-0895-4b6a-b732-b9268ac7f90d" />
+
+<img width="2022" height="1183" alt="image" src="https://github.com/user-attachments/assets/e015a2c4-bb02-4170-b609-fc69ecb1579c" />
+
+
+<img width="1398" height="1148" alt="image" src="https://github.com/user-attachments/assets/828ba393-6c1b-476a-a603-e8e9a87c61f7" />
+
 
 
 
