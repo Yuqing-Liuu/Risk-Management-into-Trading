@@ -4,9 +4,13 @@
 
 
 | IEF     | Weak signals; low volatility limits model effectiveness |
+
 | CLF     | Outstanding performance; strong momentum regime |
+
 | GCF     | Poor predictive accuracy; unstable trend cycles |
+
 | EURUSD  | Stable outperformance; FX patterns captured well |
+
 | XLK     | Positive but insufficient vs. strong structural uptrend |
 
 ---
