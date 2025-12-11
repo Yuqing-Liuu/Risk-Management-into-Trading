@@ -42,8 +42,8 @@ Bounded leverage:
 $$ k^{raw}_t = \min(\max(k^{raw}_t, k_{\min}), k_{\max}) $$
 
 with  
-- \( k_{\max} = 10 \)  
-- \( k_{\min} = 0.10 \)
+- $$\( k_{\max} = 10 \)$$  
+- $$\( k_{\min} = 0.10 \)$$
 
 ---
 
@@ -59,8 +59,8 @@ $$ DD_t = \frac{E_t}{P_t} - 1 $$
 
 Two DD triggers:
 
-- Soft drawdown:  \(-15\%\)  
-- Hard drawdown:  \(-30\%\)
+- Soft drawdown:  $$\(-15\%\)$$  
+- Hard drawdown:  $$\(-30\%\)$$
 
 Adjusted leverage:
 
