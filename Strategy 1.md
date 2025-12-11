@@ -3,7 +3,19 @@
 <img width="1274" height="378" alt="image" src="https://github.com/user-attachments/assets/801e34b3-a21d-4233-9dc9-6d582ef08da5" />
 
 
+| IEF     | Weak signals; low volatility limits model effectiveness |
+| CLF     | Outstanding performance; strong momentum regime |
+| GCF     | Poor predictive accuracy; unstable trend cycles |
+| EURUSD  | Stable outperformance; FX patterns captured well |
+| XLK     | Positive but insufficient vs. strong structural uptrend |
 
+---
+
+- S1 works best in **high-volatility, momentum-driven markets** (CLF).  
+- It struggles in **low-volatility** (IEF) or **trend-unstable** assets (GCF).  
+- It tends to **underperform secular uptrends** because of frequent signal reversals (XLK).  
+- Hit ratios remain near ~50%, meaning profitability relies on capturing large moves rather 
+  than accuracy.
 ---
 
 
